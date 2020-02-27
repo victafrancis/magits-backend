@@ -18,13 +18,13 @@ mongoose.connect(dataBaseConfig.db, {
 )
 
 // Set up express js port
-const courseRoute = require('../backend/routes/course.route')
-const userRoute = require('../backend/routes/user.route')
-const announcementRoute = require('../backend/routes/announcement.route')
-const feedbackRoute = require('../backend/routes/feedback.route')
-const scheduleRoute = require('../backend/routes/schedule.route')
-const sessionRoute = require('../backend/routes/session.route')
-const membershipRoute = require('../backend/routes/membership.route')
+const courseRoute = require('./routes/course.route')
+const userRoute = require('./routes/user.route')
+const announcementRoute = require('./routes/announcement.route')
+const feedbackRoute = require('./routes/feedback.route')
+const scheduleRoute = require('./routes/schedule.route')
+const sessionRoute = require('./routes/session.route')
+const membershipRoute = require('./routes/membership.route')
 
 const app = express();
 app.use(bodyParser.json());
