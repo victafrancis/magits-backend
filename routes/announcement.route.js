@@ -11,20 +11,19 @@ let User = require('../model/User.js')
 let Log = require('../logging')
 
 // for sending email
-sendEmail = (sender, password, recipient, subject, text) => {
+sendEmail = (sender, recipient, subject, text) => {
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: sender,
-      pass: password
+      user: 'donotreply.magits@gmail.com',
+      pass: 'UxbD3HgUrz0cLptN'
     }
   });
 
   var mailOptions = {
-    from: sender,
-    to: recipient,
+    bcc: recipient,
     subject: subject,
-    text: text
+    text: `From: ${sender} \n\n${text}`
   };
 
   transporter.sendMail(mailOptions, function (error, info) {
@@ -51,7 +50,7 @@ announcementRoute.route('/add-announcement').post((req, res, next) => {
         for (const user of users) {
           emails.push(user.email)
         }
-        sendEmail(data.email, data.password, emails, req.body.subject, req.body.content);
+        sendEmail(`${data.firstname} ${data.lastname}`, emails, req.body.subject, req.body.content);
       });
     })
     .then((data) => {
