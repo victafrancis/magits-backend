@@ -25,6 +25,7 @@ const feedbackRoute = require('./routes/feedback.route')
 const scheduleRoute = require('./routes/schedule.route')
 const sessionRoute = require('./routes/session.route')
 const membershipRoute = require('./routes/membership.route')
+const logRoute = require('./routes/logs.route');
 
 const app = express();
 app.use(bodyParser.json());
@@ -41,7 +42,7 @@ app.use('/feedback', feedbackRoute)
 app.use('/schedule', scheduleRoute)
 app.use('/session', sessionRoute)
 app.use('/membership', membershipRoute)
-
+app.use('/logs', logRoute)
 
 // Create port
 const port = process.env.PORT || 4000;
