@@ -18,6 +18,10 @@ let Course = new Schema({
   max_age: {
     type: Number
   },
+  parental_consent: {
+    type: Boolean,
+    default: false
+  },
   members: [{
     member: {type: Schema.Types.ObjectId, ref: 'User'},
     membership: {type: Schema.Types.ObjectId, ref: 'Membership'},
