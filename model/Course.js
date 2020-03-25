@@ -12,6 +12,12 @@ let Course = new Schema({
   max_students: {
     type: Number
   },
+  min_age: {
+    type: Number
+  },
+  max_age: {
+    type: Number
+  },
   members: [{
     member: {type: Schema.Types.ObjectId, ref: 'User'},
     membership: {type: Schema.Types.ObjectId, ref: 'Membership'},
